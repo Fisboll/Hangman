@@ -1,3 +1,14 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+from cgitb import reset
+from curses.ascii import isalpha
+from doctest import COMPARISON_FLAGS
+import random
+from one_word import word_list
+import controllers
+
+def get_word():
+    """
+    Fetches random word from words.py and returns it in capital letters
+    """
+    word = random.choice(word_list)
+    return word.upper()
+
