@@ -17,9 +17,6 @@ def get_word():
     """
     word = random.choice(word_list_one)
     return word.upper()
-    elif difficulty == "H, VH":
-    word = random.choice(word_list_two)
-    return word.upper()
 
 
 def play(word):
@@ -140,7 +137,7 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
 
 def display_hangman(tries):
     stages = [  # final state: head, torso, both arms, and both legs
-                """
+                text_colors.RED + """
                     --------
                     |      |
                     |      O
@@ -148,7 +145,7 @@ def display_hangman(tries):
                     |      |
                     |     / \.
                     - 
-                """ text_colors.RED + """
+                
     ▄████  ▄▄▄       ███▄ ▄███▓▓█████     ▒█████   ██▒   █▓▓█████  ██▀███
    ██▒ ▀█▒▒████▄    ▓██▒▀█▀ ██▒▓█   ▀    ▒██▒  ██▒▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
   ▒██░▄▄▄░▒██  ▀█▄  ▓██    ▓██░▒███      ▒██░  ██▒ ▓██  █▒░▒███   ▓██ ░▄█ ▒
