@@ -1,10 +1,11 @@
 import random
 from one_word import word_list as word_list_one
+from two_word import word_list as word_list_two
 
 
 def get_word():
     """
-    Fetches random word from words.py and returns it in capital letters
+    Fetches random word from one_word.py and returns it in capital letters
     """
     word = random.choice(word_list_one)
     return word.upper()
@@ -40,7 +41,7 @@ def play(word):
     difficulty_selected = False
     while difficulty_selected is False:
         difficulty = input("""Please select difficulty:
-E = Easy, M = Medium, H = Hard: """).upper()
+E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
         if difficulty == "E":
             tries = 8
             print("You chose Easy difficulty. You have ", tries, "tries.")
@@ -50,8 +51,47 @@ E = Easy, M = Medium, H = Hard: """).upper()
             print("You chose Medium difficulty. You have ", tries, "tries")
             difficulty_selected = True
         elif difficulty == "H":
-            tries = 4
+            tries = 8
             print("You chose Hard difficulty. You have ", tries, "tries")
+            word = random.choice(word_list_two)
+            difficulty_selected = True
+        elif difficulty == "VH":
+            tries = 6
+            print("You chose Very Hard difficulty. You have ", tries, "tries")
+            word = random.choice(word_list_two)
             difficulty_selected = True
         else:
-            print(difficulty, "is not a difficulty")
+            print(difficulty, "is not a difficulty")¨
+
+    print(display_hangman(tries))
+    print(word_completion)
+    print(" \n ")
+    while not guessed and tries > 0:
+        guess = input("please guess a letter or word: ").upper()
+        if len(guess) == 1 and guess.isalpha()
+            if guess in guessed_letters:
+                print("Whoops! You have already guessed the letter", guess)
+            elif guess not in word:
+                print(guess, "is not in the word! Try again!")
+                tries -= 1
+                guessed_letters.append(guess)
+            else:
+                print("Great Job", guess, "is a correct letter!")
+                guessed_letters.append(guess)
+                word_as_list = list(word_completion)
+                indices = [
+                    i for i, letter in enumerate(word)
+                    if letter == guess]
+                    for index in indices:
+                        word_as_list[index] = guess
+                        word_completion = "",join(word_as_list)
+                        if "_" not in word_completion:
+                            guessed = True
+        
+        elif len(guess) == len(word) and guess.isalpha()
+
+        else:
+            print("Not a valid guess.")
+            print(display_hangman(tries))
+            print(word_completion)
+            print(" \n ")
