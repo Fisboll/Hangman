@@ -64,12 +64,10 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
         elif difficulty == "H":
             tries = 8
             print("You chose Hard difficulty. You have ", tries, "tries")
-            word = (word_list_two)
             difficulty_selected = True
         elif difficulty == "VH":
             tries = 6
             print("You chose Very Hard difficulty. You have ", tries, "tries")
-            word = (word_list_two)
             difficulty_selected = True
         else:
             print(difficulty, "is not a difficulty")
