@@ -84,7 +84,7 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
                 tries -= 1
                 guessed_letters.append(guess)
             else:
-                print("Great Job", guess, "is a correct letter!")
+                print("Great Job!", guess, "is a correct letter!")
                 guessed_letters.append(guess)
                 word_as_list = list(word_completion)
                 indices = [
@@ -95,41 +95,21 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
                 word_completion = "".join(word_as_list)
                 if "_" not in word_completion:
                     guessed = True
-        elif guess.isalpha():
+        elif len(guess) == len(word) and guess.isalpha():
             if guess in guessed_words:
-                print("Oh Dear! You have already guessed the word", guess)
-            elif guess == "CHEAT":
-                print("YOU'RE CHEATER! SAY GOODBYE TO A TRY!")
-                cheat_letters = []
-                for letter in list(word):
-                    if letter not in guessed_letters:
-                        cheat_letters.append(letter)
-                random_letter = random.choice(cheat_letters)
-
-                guessed_letters.append(random_letter)
-                word_as_list = list(word_completion)
-                indices = [
-                    i for i, letter in enumerate(word)
-                    if letter == random_letter]
-                for index in indices:
-                    word_as_list[index] = random_letter
-                word_completion = "".join(word_as_list)
-                tries -= 1
-                if "_" not in word_completion:
-                    guessed = True
-
-            elif guess != word and len(guess) == len(word):
-                print(guess, " is not the word!")
+                print("You already guesed the word", guess)
+            elif guess != word:
+                print(guess, "is not the word.")
                 tries -= 1
                 guessed_words.append(guess)
-            elif len(guess) != len(word):
-                print("Your guess does not have the right amount of letters!")
-            else:
+        elif len(guess) != len(word):
+            print("Your guess does not have the right amount of letters!")
+        else:
                 guessed = True
                 word_completion = word
 
-        else:
-            print("Woops! Please enter a letter or word! :)")
+    else:
+        print("Woops! Please enter a letter or word! :)")
         print(display_hangman(tries))
         print(word_completion)
         print(f"There are {len(word)} letters in this word!")
