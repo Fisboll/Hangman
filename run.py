@@ -17,6 +17,9 @@ def get_word():
     """
     word = random.choice(word_list_one)
     return word.upper()
+    elif difficulty == "H, VH":
+    word = random.choice(word_list_two)
+    return word.upper()
 
 
 def play(word):
