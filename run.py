@@ -92,24 +92,48 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
                     if letter == guess]
                 for index in indices:
                     word_as_list[index] = guess
-                word_completion = "",join(word_as_list)
+                word_completion = "".join(word_as_list)
                 if "_" not in word_completion:
                     guessed = True
-        elif len(guess) == len(word) and guess.isalpha():
+        elif guess.isalpha():
             if guess in guessed_words:
-                print("You already guesed the word", guess)
-            elif guess != word:
-                print(guess, "is not the word.")
+                print("Oh Dear! You have already guessed the word", guess)
+            elif guess == "CHEAT":
+                print("YOU'RE CHEATER! SAY GOODBYE TO A TRY!")
+                cheat_letters = []
+                for letter in list(word):
+                    if letter not in guessed_letters:
+                        cheat_letters.append(letter)
+                random_letter = random.choice(cheat_letters)
+
+                guessed_letters.append(random_letter)
+                word_as_list = list(word_completion)
+                indices = [
+                    i for i, letter in enumerate(word)
+                    if letter == random_letter]
+                for index in indices:
+                    word_as_list[index] = random_letter
+                word_completion = "".join(word_as_list)
+                tries -= 1
+                if "_" not in word_completion:
+                    guessed = True
+
+            elif guess != word and len(guess) == len(word):
+                print(guess, " is not the word!")
                 tries -= 1
                 guessed_words.append(guess)
+            elif len(guess) != len(word):
+                print("Your guess does not have the right amount of letters!")
             else:
                 guessed = True
                 word_completion = word
+
         else:
-            print("Not a valid guess.")
-            print(display_hangman(tries))
-            print(word_completion)
-            print(" \n ")
+            print("Woops! Please enter a letter or word! :)")
+        print(display_hangman(tries))
+        print(word_completion)
+        print(f"There are {len(word)} letters in this word!")
+        print("\n")
     if guessed:
         print(text_colors.GREEN + """Congrats, you guessed the word!
  __    __    ___  _      _          ___     ___   ____     ___
@@ -241,7 +265,8 @@ def display_hangman(tries):
 def main():
     word = get_word()
     play(word)
-    while input("play again? (Y/N) ").upper() == "Y":
+    while input("Play Again? Enter 'Y' for YES"
+                "\n or any other letter for NO ").upper() == "Y":
         word = get_word()
         play(word)
 
