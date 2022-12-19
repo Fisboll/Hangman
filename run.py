@@ -16,7 +16,7 @@ def get_word():
     """
     word = random.choice(word_list_one)
     return word.upper()
-    
+
 
 def play(word):
     """
@@ -28,7 +28,7 @@ def play(word):
     guessed_letters = []
     guessed_words = []
     tries = 8
-    print( text_colors.BLUE + """ Welcome to
+    print(text_colors.BLUE + """ Welcome to
     __   ___   ____   _____  ___   _        ___
    /  ] /   \ |    \ / ___/ /   \ | |      /  _]
   /  / |     ||  _  (   \_ |     || |     /  [_
@@ -43,7 +43,7 @@ def play(word):
 |  |  ||  _  ||  |  ||  |_ ||   |   ||  _  ||  |  |
 |  |  ||  |  ||  |  ||     ||   |   ||  |  ||  |  |
 |__|__||__|__||__|__||___,_||___|___||__|__||__|__|
-""" + text_colors.White)
+""" + text_colors.WHITE)
 
     difficulty_selected = False
     while difficulty_selected is False:
@@ -87,11 +87,11 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
                 guessed_letters.append(guess)
                 word_as_list = list(word_completion)
                 indices = [i for i, letter in enumerate(word) if letter == guess]
-                        for index in indices:
-                        word_as_list[index] = guess
-                        word_completion = "",join(word_as_list)
-                        if "_" not in word_completion:
-                            guessed = True
+                for index in indices:
+                    word_as_list[index] = guess
+                word_completion = "",join(word_as_list)
+                if "_" not in word_completion:
+                    guessed = True
         
         elif len(guess) == len(word) and guess.isalpha():
             if guess in guessed_words:
@@ -109,7 +109,7 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
             print(word_completion)
             print(" \n ")
     if guessed:
-        print( text_colors.GREEN + """Congrats, you guessed the word!
+        print(text_colors.GREEN + """Congrats, you guessed the word!
  ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄            ▄                 ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄    
 ▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░▌          ▐░▌               ▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░░▌      ▐░▌▐░░░░░░░░░░░▌   
 ▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░▌          ▐░▌               ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌▐░▌░▌     ▐░▌▐░█▀▀▀▀▀▀▀▀▀    
@@ -138,11 +138,12 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
         print("Sorry, you ran out of tries. The word was " + word + ". Maybe next time!")
 
 
-    def display_hangman(tries):
+def display_hangman(tries):
     """
     Displays hangman graphic based on lives left
     """
-    stages = [
+    stages = [ 
+        # final state: head, torso, both arms, and both legs
         """
         ___________
         |/        |
@@ -153,6 +154,7 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
         |\\
         ========
         """,
+         # head, torso, both arms, and one leg
         """
         ___________
         |/        |
@@ -163,6 +165,7 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
         |\\
         ========
         """,
+        # head, torso, and both arms
         """
         __________
         |/        |
@@ -173,6 +176,7 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
         |\\
         ========
         """,
+        # head, torso, and one arm
         """
         __________
         |/        |
@@ -183,6 +187,7 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
         |\\
         ========
         """,
+        # head, neck and torso
         """
         __________
         |/        |
@@ -193,6 +198,7 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
         |\\
         ========
         """,
+        # head and neck
         """
         __________
         |/        |
@@ -232,7 +238,3 @@ def main():
     while input("play again? (Y/N) ").upper() == "Y":
         word = get_word()
         play(word)
-
-
-if__name__ == "__main__"
-main()
