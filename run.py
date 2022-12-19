@@ -2,6 +2,13 @@ import random
 from one_word import word_list as word_list_one
 from two_word import word_list as word_list_two
 
+class text_colors:
+    BLUE = '\033[38;5;159m'
+    GREEN = '\033[92m'
+    RED = '\033[91m'
+    WHITE = '\033[0m'
+    BOLD = '\033[1m'
+
 
 def get_word():
     """
@@ -21,7 +28,7 @@ def play(word):
     guessed_letters = []
     guessed_words = []
     tries = 8
-    print(f"""{colored.fg(124)} Welcome to
+    print( text_colors.BLUE + """ Welcome to
     __   ___   ____   _____  ___   _        ___
    /  ] /   \ |    \ / ___/ /   \ | |      /  _]
   /  / |     ||  _  (   \_ |     || |     /  [_
@@ -36,7 +43,7 @@ def play(word):
 |  |  ||  _  ||  |  ||  |_ ||   |   ||  _  ||  |  |
 |  |  ||  |  ||  |  ||     ||   |   ||  |  ||  |  |
 |__|__||__|__||__|__||___,_||___|___||__|__||__|__|
-{colored.attr('reset')}""")
+""" + text_colors.White)
 
     difficulty_selected = False
     while difficulty_selected is False:
@@ -79,9 +86,7 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
                 print("Great Job", guess, "is a correct letter!")
                 guessed_letters.append(guess)
                 word_as_list = list(word_completion)
-                indices = [
-                    i for i, letter in enumerate(word)
-                    if letter == guess]
+                indices = [i for i, letter in enumerate(word) if letter == guess]
                     for index in indices:
                         word_as_list[index] = guess
                         word_completion = "",join(word_as_list)
@@ -89,9 +94,145 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
                             guessed = True
         
         elif len(guess) == len(word) and guess.isalpha()
-
+            if guess in guessed_words:
+                print("You already guesed the word", guess)
+            elif guess != word:
+                print(guess, "is not the word.")
+                tries -= 1
+                guessed_words.append(guess)
+            else
+                guessed = True
+                word_completion = word
         else:
             print("Not a valid guess.")
             print(display_hangman(tries))
             print(word_completion)
             print(" \n ")
+    if guessed:
+        print( text_colors.GREEN + """Congrats, you guessed the word!
+ ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄            ▄                 ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄    
+▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░▌          ▐░▌               ▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░░▌      ▐░▌▐░░░░░░░░░░░▌   
+▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░▌          ▐░▌               ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌▐░▌░▌     ▐░▌▐░█▀▀▀▀▀▀▀▀▀    
+▐░▌       ▐░▌▐░▌          ▐░▌          ▐░▌               ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌▐░▌    ▐░▌▐░▌             
+▐░▌   ▄   ▐░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░▌          ▐░▌               ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌ ▐░▌   ▐░▌▐░█▄▄▄▄▄▄▄▄▄    
+▐░▌  ▐░▌  ▐░▌▐░░░░░░░░░░░▌▐░▌          ▐░▌               ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌  ▐░▌  ▐░▌▐░░░░░░░░░░░▌   
+▐░▌ ▐░▌░▌ ▐░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░▌          ▐░▌               ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌   ▐░▌ ▐░▌▐░█▀▀▀▀▀▀▀▀▀    
+▐░▌▐░▌ ▐░▌▐░▌▐░▌          ▐░▌          ▐░▌               ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌    ▐░▌▐░▌▐░▌             
+▐░▌░▌   ▐░▐░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄      ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌▐░▌     ▐░▐░▌▐░█▄▄▄▄▄▄▄▄▄  ▄ 
+▐░░▌     ▐░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░▌      ▐░░▌▐░░░░░░░░░░░▌▐░▌
+ ▀▀       ▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀       ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀  ▀        ▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀ 
+                                                                                                                
+ ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄         ▄       ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄                              
+▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌     ▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░▌      ▐░▌                             
+▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀█░▌▐░▌       ▐░▌     ▐░▌       ▐░▌ ▀▀▀▀█░█▀▀▀▀ ▐░▌░▌     ▐░▌                             
+▐░▌       ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌       ▐░▌     ▐░▌     ▐░▌▐░▌    ▐░▌                             
+▐░█▄▄▄▄▄▄▄█░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌   ▄   ▐░▌     ▐░▌     ▐░▌ ▐░▌   ▐░▌                             
+▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌  ▐░▌  ▐░▌     ▐░▌     ▐░▌  ▐░▌  ▐░▌                             
+ ▀▀▀▀█░█▀▀▀▀ ▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌ ▐░▌░▌ ▐░▌     ▐░▌     ▐░▌   ▐░▌ ▐░▌                             
+     ▐░▌     ▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌▐░▌ ▐░▌▐░▌     ▐░▌     ▐░▌    ▐░▌▐░▌                             
+     ▐░▌     ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌     ▐░▌░▌   ▐░▐░▌ ▄▄▄▄█░█▄▄▄▄ ▐░▌     ▐░▐░▌                             
+     ▐░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░░▌     ▐░░▌▐░░░░░░░░░░░▌▐░▌      ▐░░▌                             
+      ▀       ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀       ▀▀       ▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀        ▀▀                              
+""" + text_colors.White)
+    else:
+        print("Sorry, you ran out of tries. The word was " + word + ". Maybe next time!")
+
+
+    def display_hangman(tries):
+    """
+    Displays hangman graphic based on lives left
+    """
+    stages = [
+        """
+        ___________
+        |/        |
+        |         O
+        |        /|\\
+        |         |
+        |        / \\
+        |\\
+        ========
+        """,
+        """
+        ___________
+        |/        |
+        |         O
+        |        /|\\
+        |         |
+        |        /
+        |\\
+        ========
+        """,
+        """
+        __________
+        |/        |
+        |         O
+        |        /|\\
+        |         |
+        |
+        |\\
+        ========
+        """,
+        """
+        __________
+        |/        |
+        |         O
+        |        /|
+        |         |
+        |
+        |\\
+        ========
+        """,
+        """
+        __________
+        |/        |
+        |         O
+        |         |
+        |         |
+        |
+        |\\
+        ========
+        """,
+        """
+        __________
+        |/        |
+        |         O
+        |
+        |
+        |
+        |\\
+        ========
+        """,
+        """
+        __________
+        |/
+        |
+        |
+        |
+        |
+        |\\
+        ========
+        """,
+        """
+        __________
+        |/
+        |
+        |
+        |
+        |
+        |
+        ========
+        """
+    ]
+    return stages[tries]
+
+def main():
+    word = get_word()
+    play(word)
+    while input("play again? (Y/N) ").upper() == "Y":
+        word = get_word()
+        play(word)
+
+
+if__name__ == "__main__":
+main()
