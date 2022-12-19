@@ -68,14 +68,14 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
             word = random.choice(word_list_two)
             difficulty_selected = True
         else:
-            print(difficulty, "is not a difficulty")¨
+            print(difficulty, "is not a difficulty")
 
     print(display_hangman(tries))
     print(word_completion)
     print(" \n ")
     while not guessed and tries > 0:
         guess = input("please guess a letter or word: ").upper()
-        if len(guess) == 1 and guess.isalpha()
+        if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
                 print("Whoops! You have already guessed the letter", guess)
             elif guess not in word:
@@ -87,20 +87,20 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
                 guessed_letters.append(guess)
                 word_as_list = list(word_completion)
                 indices = [i for i, letter in enumerate(word) if letter == guess]
-                    for index in indices:
+                        for index in indices:
                         word_as_list[index] = guess
                         word_completion = "",join(word_as_list)
                         if "_" not in word_completion:
                             guessed = True
         
-        elif len(guess) == len(word) and guess.isalpha()
+        elif len(guess) == len(word) and guess.isalpha():
             if guess in guessed_words:
                 print("You already guesed the word", guess)
             elif guess != word:
                 print(guess, "is not the word.")
                 tries -= 1
                 guessed_words.append(guess)
-            else
+            else:
                 guessed = True
                 word_completion = word
         else:
@@ -234,5 +234,5 @@ def main():
         play(word)
 
 
-if__name__ == "__main__":
+if__name__ == "__main__"
 main()
