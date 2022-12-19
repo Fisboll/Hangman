@@ -139,14 +139,15 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
 
 def display_hangman(tries):
     stages = [  # final state: head, torso, both arms, and both legs
-                text_colors.RED + """
+                """
                     --------
                     |      |
                     |      O
                     |     \|/
                     |      |
                     |     / \.
-                    -
+                    - 
+                """ text_colors.RED + """
     ▄████  ▄▄▄       ███▄ ▄███▓▓█████     ▒█████   ██▒   █▓▓█████  ██▀███
    ██▒ ▀█▒▒████▄    ▓██▒▀█▀ ██▒▓█   ▀    ▒██▒  ██▒▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
   ▒██░▄▄▄░▒██  ▀█▄  ▓██    ▓██░▒███      ▒██░  ██▒ ▓██  █▒░▒███   ▓██ ░▄█ ▒
