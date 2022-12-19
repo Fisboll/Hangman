@@ -1,6 +1,6 @@
 word_list = [
-    'apple pie',
-    'strawberry pie',
-    'juice box',
-    'Code institution',   
+    'apple_pie',
+    'strawberry_pie',
+    'juice_box',
+    'Code_institution',   
 ]

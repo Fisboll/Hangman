@@ -61,11 +61,13 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
             tries = 8
             print("You chose Hard difficulty. You have ", tries, "tries")
             word = random.choice(word_list_two)
+            return word.upper()
             difficulty_selected = True
         elif difficulty == "VH":
             tries = 6
             print("You chose Very Hard difficulty. You have ", tries, "tries")
             word = random.choice(word_list_two)
+            return word.upper()
             difficulty_selected = True
         else:
             print(difficulty, "is not a difficulty")
@@ -86,13 +88,14 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
                 print("Great Job", guess, "is a correct letter!")
                 guessed_letters.append(guess)
                 word_as_list = list(word_completion)
-                indices = [i for i, letter in enumerate(word) if letter == guess]
+                indices = [
+                    i for i, letter in enumerate(word) 
+                    if letter == guess]
                 for index in indices:
                     word_as_list[index] = guess
                 word_completion = "",join(word_as_list)
                 if "_" not in word_completion:
                     guessed = True
-        
         elif len(guess) == len(word) and guess.isalpha():
             if guess in guessed_words:
                 print("You already guesed the word", guess)
@@ -154,7 +157,7 @@ def display_hangman(tries):
         |\\
         ========
         """,
-         # head, torso, both arms, and one leg
+        # head, torso, both arms, and one leg
         """
         ___________
         |/        |
@@ -232,9 +235,14 @@ def display_hangman(tries):
     ]
     return stages[tries]
 
+
 def main():
     word = get_word()
     play(word)
     while input("play again? (Y/N) ").upper() == "Y":
         word = get_word()
         play(word)
+
+
+if __name__ == "__main__":
+    main()
