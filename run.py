@@ -2,6 +2,7 @@ import random
 from one_word import word_list as word_list_one
 from two_word import word_list as word_list_two
 
+
 class text_colors:
     BLUE = '\033[38;5;159m'
     GREEN = '\033[92m'
@@ -61,13 +62,11 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
             tries = 8
             print("You chose Hard difficulty. You have ", tries, "tries")
             word = random.choice(word_list_two)
-            return word.upper()
             difficulty_selected = True
         elif difficulty == "VH":
             tries = 6
             print("You chose Very Hard difficulty. You have ", tries, "tries")
             word = random.choice(word_list_two)
-            return word.upper()
             difficulty_selected = True
         else:
             print(difficulty, "is not a difficulty")
@@ -138,14 +137,16 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
       ▀       ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀       ▀▀       ▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀        ▀▀                              
 """ + text_colors.White)
     else:
-        print("Sorry, you ran out of tries. The word was " + word + ". Maybe next time!")
+        print(
+            "Sorry, you ran out of tries. The word was " + word +
+            "/n Maybe next time!")
 
 
 def display_hangman(tries):
     """
     Displays hangman graphic based on lives left
     """
-    stages = [ 
+    stages = [
         # final state: head, torso, both arms, and both legs
         """
         ___________
