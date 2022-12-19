@@ -31,8 +31,8 @@ def play(word):
     tries = 8
     print(text_colors.BLUE + """ Welcome to
  _______                       _
-(_______)                     | |
- _       ___  ____   ___  ___ | | _____
+(  _____)                     | |
+| /      ___  ____   ___  ___ | | _____
 | |     / _ \|  _ \ /___)/ _ \| || ___ |
 | |____| |_| | | | |___ | |_| | || ____|
  \______)___/|_| |_(___/ \___/ \_)_____)
@@ -103,10 +103,9 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
         elif len(guess) != len(word):
             print("Your guess does not have the right amount of letters!")
         else:
-                guessed = True
-                word_completion = word
+            guessed = True
+            word_completion = word
 
-    else:
         print("Woops! Please enter a letter or word! :)")
         print(display_hangman(tries))
         print(word_completion)
@@ -132,7 +131,7 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
     else:
         print(
             "Sorry, you ran out of tries. The word was " + word +
-            "/n Maybe next time!")
+            "\n Maybe next time!")
 
 
 def display_hangman(tries):
