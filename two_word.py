@@ -75,8 +75,8 @@ word_list = [
     'fill up',
     'fill out',
     'fill in',
-    'high School',
-    'school Bus',
-    'science Fiction',
+    'high school',
+    'school bus',
+    'science fiction',
     'blood pressure'
 ]
