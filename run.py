@@ -8,18 +8,35 @@ class text_colors:
     GREEN = '\033[92m'
     RED = '\033[91m'
     WHITE = '\033[0m'
-    BOLD = '\033[1m'
 
 
-def get_word():
+class game_settings:
+    def __init__(self, lives, words):
+        self.lives = lives
+        self.word = words
+        self.hidden = ''
+
+
+def get_word(self):
     """
     Fetches random word from one_word.py and returns it in capital letters
     """
-    word = random.choice(word_list_one)
-    return word.upper()
+    self.word = random.choice(word_list_one).upper()
+    self.hidden = "_" + len(self.word)
 
 
-def play(word):
+def get_word_two(self):
+    word = random.choice(word_list_two).upper()
+    bob = word.split('-')
+    print(bob)
+    first_hidden = "_" * len(bob[0])
+    second_hidden = "_" * len(bob[1])
+    print(first_hidden, second_hidden)
+    self.word = bob[0] + '' + bob[1]
+    self.hidden = first_hidden + '' + second_hidden
+
+
+def intro(word):
     """
     displaying word for each turn, will run until
     user guesses word or runs out of tries
@@ -112,50 +129,24 @@ E = Easy, M = Medium, H = Hard: VH = Very Hard """).upper()
         print(f"There are {len(word)} letters in this word!")
         print("\n")
     if guessed:
-        print(text_colors.GREEN + """Congrats, you guessed the word!
- __    __    ___  _      _          ___     ___   ____     ___
-|  |__|  |  /  _]| |    | |        |   \   /   \ |    \   /  _]
-|  |  |  | /  [_ | |    | |        |    \ |     ||  _  | /  [_
-|  |  |  ||    _]| |___ | |___     |  D  ||  O  ||  |  ||    _]
-|  `  '  ||   [_ |     ||     |    |     ||     ||  |  ||   [_
- \      / |     ||     ||     |    |     ||     ||  |  ||     |
-  \_/\_/  |_____||_____||_____|    |_____| \___/ |__|__||_____|
-
-|  |  | /   \ |  |  |    |  |__|  ||    ||    \ |  |
-|  |  ||     ||  |  |    |  |  |  | |  | |  _  ||  |
-|  ~  ||  O  ||  |  |    |  |  |  | |  | |  |  ||__|
-|___, ||     ||  :  |    |  `  '  | |  | |  |  | __
-|     ||     ||     |     \      /  |  | |  |  ||  |
-|____/  \___/  \__,_|      \_/\_/  |____||__|__||__|
-""" + text_colors.White)
+        win_game()
     else:
         print(
             "Sorry, you ran out of tries. The word was " + word +
             "\n Maybe next time!")
+        lose_game()
 
 
 def display_hangman(tries):
     stages = [  # final state: head, torso, both arms, and both legs
-                text_colors.RED + """
+                """
                     --------
                     |      |
                     |      O
                     |     \|/
                     |      |
                     |     / \.
-                    - 
-                
-    ▄████  ▄▄▄       ███▄ ▄███▓▓█████     ▒█████   ██▒   █▓▓█████  ██▀███
-   ██▒ ▀█▒▒████▄    ▓██▒▀█▀ ██▒▓█   ▀    ▒██▒  ██▒▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
-  ▒██░▄▄▄░▒██  ▀█▄  ▓██    ▓██░▒███      ▒██░  ██▒ ▓██  █▒░▒███   ▓██ ░▄█ ▒
-  ░▓█  ██▓░██▄▄▄▄██ ▒██    ▒██ ▒▓█  ▄    ▒██   ██░  ▒██ █░░▒▓█  ▄ ▒██▀▀█▄
-  ░▒▓███▀▒ ▓█   ▓██▒▒██▒   ░██▒░▒████▒   ░ ████▓▒░   ▒▀█░  ░▒████▒░██▓ ▒██▒
-   ░▒   ▒  ▒▒   ▓▒█░░ ▒░   ░  ░░░ ▒░ ░   ░ ▒░▒░▒░    ░ ▐░  ░░ ▒░ ░░ ▒▓ ░▒▓░
-   ░   ░   ▒   ▒▒ ░░  ░      ░ ░ ░  ░     ░ ▒ ▒░    ░ ░░   ░ ░  ░  ░▒ ░ ▒░
-   ░ ░   ░   ░   ▒   ░      ░      ░      ░ ░ ░ ▒       ░░     ░     ░░   ░
-    ░       ░  ░       ░      ░  ░       ░ ░        ░     ░  ░   ░
-                                                      ░
-                """ + text_colors.WHITE,
+                    - """,
                 # head, torso, both arms, and one leg
                 """
                    --------
@@ -240,14 +231,60 @@ def display_hangman(tries):
     return stages[tries]
 
 
-def main():
-    word = get_word()
-    play(word)
-    while input("Play Again? Enter 'Y' for YES"
-                "\n or any other letter for NO ").upper() == "Y":
-        word = get_word()
-        play(word)
+def win_game():
+    """
+    Shows up when you win the game.
+    """
+    print(text_colors.GREEN + """Congrats, you guessed the word!
+ __    __    ___  _      _          ___     ___   ____     ___
+|  |__|  |  /  _]| |    | |        |   \   /   \ |    \   /  _]
+|  |  |  | /  [_ | |    | |        |    \ |     ||  _  | /  [_
+|  |  |  ||    _]| |___ | |___     |  D  ||  O  ||  |  ||    _]
+|  `  '  ||   [_ |     ||     |    |     ||     ||  |  ||   [_
+ \      / |     ||     ||     |    |     ||     ||  |  ||     |
+  \_/\_/  |_____||_____||_____|    |_____| \___/ |__|__||_____|
+
+|  |  | /   \ |  |  |    |  |__|  ||    ||    \ |  |
+|  |  ||     ||  |  |    |  |  |  | |  | |  _  ||  |
+|  ~  ||  O  ||  |  |    |  |  |  | |  | |  |  ||__|
+|___, ||     ||  :  |    |  `  '  | |  | |  |  | __
+|     ||     ||     |     \      /  |  | |  |  ||  |
+|____/  \___/  \__,_|      \_/\_/  |____||__|__||__|
+""" + text_colors.WHITE)
 
 
-if __name__ == "__main__":
-    main()
+def lose_game():
+    """
+    Shows up when you're losing the game.
+    """
+    print(text_colors.RED + """
+
+    ▄████  ▄▄▄       ███▄ ▄███▓▓█████     ▒█████   ██▒   █▓▓█████  ██▀███
+   ██▒ ▀█▒▒████▄    ▓██▒▀█▀ ██▒▓█   ▀    ▒██▒  ██▒▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
+  ▒██░▄▄▄░▒██  ▀█▄  ▓██    ▓██░▒███      ▒██░  ██▒ ▓██  █▒░▒███   ▓██ ░▄█ ▒
+  ░▓█  ██▓░██▄▄▄▄██ ▒██    ▒██ ▒▓█  ▄    ▒██   ██░  ▒██ █░░▒▓█  ▄ ▒██▀▀█▄
+  ░▒▓███▀▒ ▓█   ▓██▒▒██▒   ░██▒░▒████▒   ░ ████▓▒░   ▒▀█░  ░▒████▒░██▓ ▒██▒
+   ░▒   ▒  ▒▒   ▓▒█░░ ▒░   ░  ░░░ ▒░ ░   ░ ▒░▒░▒░    ░ ▐░  ░░ ▒░ ░░ ▒▓ ░▒▓░
+   ░   ░   ▒   ▒▒ ░░  ░      ░ ░ ░  ░     ░ ▒ ▒░    ░ ░░   ░ ░  ░  ░▒ ░ ▒░
+   ░ ░   ░   ░   ▒   ░      ░      ░      ░ ░ ░ ▒       ░░     ░     ░░   ░
+    ░       ░  ░       ░      ░  ░       ░ ░        ░     ░  ░   ░
+                                                      ░""" + text_colors.WHITE)
+
+
+def select_difficulty():
+
+
+    def main():
+ #    """
+  #  Resets the game whenever you win or loses by pressing Y or N.
+ #   """
+ #   word = get_word()
+ #  play(word)
+  #  while input("Play Again? Enter 'Y' for YES"
+ #               "\n or any other letter for NO ").upper() == "Y":
+  #      word = get_word()
+ #       play(word)
+
+
+        if __name__ == "__main__":
+            main()
