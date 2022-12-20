@@ -328,7 +328,7 @@ def main():
     print(game_instance.lives, game_instance.hidden)
     play(game_instance)
     while (
-        input("Play Again? Enter 'Y' for YES" "\n or any other letter for NO ").upper()
+       input("Play Again? Enter 'Y' for YES" "\n or any other letter for NO ").upper()
         == "Y"
     ):
         game_instance = select_difficulty()
