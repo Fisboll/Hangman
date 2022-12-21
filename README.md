@@ -95,16 +95,10 @@ A webpage is a living beast it's going to evolve past the initial stages of rele
 * Due to the subject matter, we have discussed the idea of including a small JS game to engage the user
 ​
 ## **Testing Phase**
-​
-This is the hardest bit of the readme, when we have completed a page we need to discuss testing.
-​
-Here is a good idea to talk about how and why you have tested with certain tools and validators so here a list of things to talk through
-​
-* Responsiveness - How do you test this, dev tools? checking on multiple devices?
-​
-* Functionality - Each feature needs to be tested before something is complete, talk about the process, click each link check each image, does form validation work, if your using javascript or anything else, does it always behave as the user expects
-​
-* Validators - Here include images from w3c html validator and css jigsaw (jshint for js and pep8 for python) and the results that came from it
+
+The testing phase was mostly trial and errors. I managed to run into a lot of issues considering I didn't know how to add a spacing between words which usually ended up with me not being able to figure to fit in the 2nd word section. That was helped by my mentor during our last meeting. Otherwise the testing phase was honestly writing out the code and testing. I figured also that my print sections was broken in an early stage as it didn't show the Hangman figure as it should but only showed if a letter was right or wrong. Figured out that was an issue with the print statement and solved it by removing the overlapping text.​
+
+Tested the code through the [Python validator](https://pep8ci.herokuapp.com/) And everything came back clean. Of course the only issues was the remaining invalid escape sequences and the error line on 336 which is noted in bugs section.
 ​
 ​
 ## **Bugs**
@@ -114,6 +108,8 @@ Anomalous backslash in string: '\ '. String constant might be missing an r prefi
 which is unable to be fixed. This is not an error just an complaining from Python however to make the good looking signs they need to be added there :P
 
 * On line 336 there is a complaining section about a 'to long line' however that isn't sadly something that can be solved. Wherever I cut the line it complains in any sort of error and in the end the code is working and running fine.
+
+On line 66 is an empty drawspace. That is currently needed as to not break the entire Logo section. If that line is removed the end sequence is activated and the entire line becomes distorted ruining the Hangman text.
 ​
 ***
 ## **Deployment**
@@ -137,14 +133,12 @@ Here mention what technologies you've used for example
 ### **Honorable mentions**
 
 [Took the class of colors](https://github.com/gibbo101/hangman/blob/main/run.py)
-This one I took the hangman pictures, Of course
+This one I took the hangman pictures, Of course. I also took the base of how they made their difficult levels. [Where I got most inspiration](https://github.com/Bethieieio/project-three-console-hangman)
+
+And my last mention is of course my amazing Mentor who helped me through it all!
 ​
 It's always nice to mention those that helped you get there, if people gave you support on slack or the local cat scared you into completing give them a mention!
 ​
 ### **Content:**
 ​
 If you took any code from online source and by this i mean copy paste with zero changes mention it here!
-  
-### **Media:**
-​
-Links to the locations of images if you've used them from an online source!
