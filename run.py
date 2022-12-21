@@ -291,7 +291,7 @@ def select_difficulty():
     while difficulty_selected is False:
         difficulty = input(
             """Please select difficulty:
-E = Easy, M = Medium, H = Hard: VH = Very Hard 
+E = Easy, M = Medium, H = Hard: VH = Very Hard
 Easy & Medium will provide you with one word.
 Meanwhile Hard & Very hard will provide you with two to solve."""
         ).upper()
