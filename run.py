@@ -325,7 +325,8 @@ Meanwhile Hard & Very hard will provide you with two to solve."""
 
 
 def main():
-    """Whenever you win or lose or starts the game. This settings reset and starts the game."""
+    """Whenever you win or lose or starts the game.
+    This settings reset and start the game."""
 
     intro_logo()
     game_instance = select_difficulty()
