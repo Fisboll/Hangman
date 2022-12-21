@@ -102,7 +102,8 @@ def play(game_settings):
                 guessed_letters.append(guess)
                 word_as_list = list(word_completion)
                 indices = [
-                i for i, letter in enumerate(game_settings.word) if letter == guess
+                    i for i, letter in enumerate(
+                        game_settings.word) if letter == guess
                 ]
                 for index in indices:
                     word_as_list[index] = guess
@@ -328,8 +329,8 @@ def main():
     print(game_instance.lives, game_instance.hidden)
     play(game_instance)
     while (
-       input("Play Again? Enter 'Y' for YES" "\n or any other letter for NO ").upper()
-        == "Y"
+       input("Play Again? Enter 'Y' for YES \n or any other letter for NO ").upper()
+            == "Y"
     ):
         game_instance = select_difficulty()
         play(game_instance)
