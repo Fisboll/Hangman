@@ -292,8 +292,8 @@ def select_difficulty():
         difficulty = input(
             """Please select difficulty:
 E = Easy, M = Medium, H = Hard: VH = Very Hard 
-/n Easy & Medium will provide you with one word.
-/n Meanwhile Hard & Very hard will provide you with two to solve."""
+Easy & Medium will provide you with one word.
+Meanwhile Hard & Very hard will provide you with two to solve."""
         ).upper()
         if difficulty == "E":
             tries = 8
