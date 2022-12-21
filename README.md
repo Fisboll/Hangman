@@ -1,58 +1,4 @@
-# **Site Title**
-## **Site Overview**
-This is where you give a brief overview of the page so, like an intro to the business or project followed by a brief talk about who the page is targeted at for example for a retro gaming arcade.
-​
-Retro arcade is a local business in the Sheffield area looking to offer young people a place to come and hangout and play old school games in a relaxed and friendly environment. Due to lower turnout than expected they have asked for a page to be built to spread the word in the community and wider areas. Ideally the business is intended to target younger gamers primarily but also be appealing to older people interested in a gaming experience 
-​
-![Am I responsive screenshot](imagelocation so maybe docs/image.jpg)
-​
-## Table of contents:
-1. [**Site Overview**](#site-overview)
-1. [**Planning stage**](#planning-stage)
-    * [***Target Audiences***](#target-audiences)
-    * [***User Stories***](#user-stories)
-    * [***Site Aims***](#site-aims)
-    * [***Wireframes***](#wireframes)
-    * [***Color Scheme***](#color-scheme)
-    * [***Typography**](#typography)
-1. [**Current Features Common to all pages**](#current-features-common-to-all-pages)
-    * [***Header Element:***](#header-element)
-    * [***The rest of your features***](#features)
-    * [**Footer**](#footer)
-1. [**Individual Page Content features**](#individual-page-content-features)
-    * [**About Page Content**](#about-page-content)
-    * [**Teachings Page Content**](#teachings-page-content)
-    * [**Community Page Content**](#community-page-content)
-    * [**Contact Page Content**](#contact-page-content)
-    * [**Form Feedback Page Content**](#form-feedback-page-content)
-1. [**Future-Enhancements**](#future-enhancements)
-1. [**Testing Phase**](#testing-phase)
-1. [**Deployment**](#deployment)
-1. [**Tech**](#tech)
-1. [**Credits**](#credits)
-    * [**Honorable mentions**](#honorable-mentions)
-    * [**General reference**](#general-reference)
-    * [**Content**](#content)
-    * [**Media**](#media)
-​
-## **Planning stage**
-### **Target Audiences:**
-​
-This section is a breakdown of the target audience 3 or 4 bullet points so using our example
-​
-* Users interested in retro gaming 
-* Users interested in a safe environment to gather and have fun
-* Users interested in activities in the Sheffield area
-​
-### **User Stories:**
-​
-User stories are more what the user wants from the site in terms of features and presentation
-​
-* As a user, I want to see the subject matter of the page.
-* As a user, I want to navigate the page to find what I require quickly and easily.
-* As a user, I want to learn more about what the business offers
-* As a user, I want to reach out and contact the business
-​
+# **Hang Man**
 ### **Site Aims:**
 ​
 Hangman in a terminal.
@@ -61,38 +7,11 @@ Hangman in a terminal.
 ​
 We usually don't have much of a color scheme except White, Red, Blue and green. The exact hexagon codes I can sandly not provide considering I don't remember them fully myself at this point. 
 ​
-## **Typography**
-​
-Here is a chance to discuss the fonts used and again why, doesn't need to be crazy detail
-​
-* Throughout the page, there are three fonts used:
-  * Oswald - For the title to give it a strong presence.
-  * DM sans - For all other headings including the navbar. 
-  * Open sans - for all content text.
-​
-* DM and Open sans were both selected to complement each other and because they have a soft appearance which I thought best suited to the site
-* All fonts were sourced from Google fonts, as stated in the credits.
-​
 ## **Current Features Common to all pages**
 ​
-#### *Navigation Bar:*
-This is an example of the features section, your going to talk about each section of the page and what it offers for the navbar for example
-​
-* The user is given links to each section of the page
-* Each option is presented in a way that is always obvious and reable
-* on smaller screens a hamburger menu is provided to ensure mobile users have an optimal experience
-​
-#### *features
-​
-* This is where you will place all of your features think about each section of the page include a screenshot and a few bullet points on how it's presented and why
-​
 ## **Future-Enhancements**
-​
-A webpage is a living beast it's going to evolve past the initial stages of release generally, it's always good to discuss where you this the page may go in the future
-​
-* At the time of making this page i didn't have the understanding to actual send e-mails from the contact form so intergration with email.js to send e-mails would improve the users experience
-​
-* Due to the subject matter, we have discussed the idea of including a small JS game to engage the user
+
+* What can be made in the future is adding more letters into the two_word.py file. Potentially adding a third option which would give you three words instead of one or two, there can also be visual updates and improvement on the codes.
 ​
 ## **Testing Phase**
 
