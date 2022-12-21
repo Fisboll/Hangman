@@ -286,6 +286,7 @@ def lose_game():
 
 
 def select_difficulty():
+    """ Sets the difficulty for what you wanna play."""
 
     difficulty_selected = False
     while difficulty_selected is False:
